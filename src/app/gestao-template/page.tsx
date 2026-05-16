@@ -231,7 +231,7 @@ export default function PortalGestaoTemplatePage() {
 
                     <div className="flex flex-col gap-10 pb-10">
                         <p className="text-xs text-[#515154] leading-relaxed bg-[#fcfcf9] p-4 rounded-xl border border-gray-100 shadow-sm">
-                            Este é um ambiente de demonstração de {"15 dias de teste grátis"}. <br /><br />
+                            Este é um ambiente de demonstração. <br /><br />
                             Altere os textos abaixo e clique no botão preto acima para ver a interatividade em tempo real. Os dados não serão salvos definitivamente no modo teste.
                         </p>
 
