@@ -1,0 +1,25 @@
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+
+export function proxy(request: NextRequest) {
+    // Busca o cookie que criaremos no momento do login
+    const token = request.cookies.get('cintia_auth_token')?.value;
+
+    // Verifica se a rota acessada começa com a NOVA URL
+    if (request.nextUrl.pathname.startsWith('/portal-gestao-plc301')) {
+
+        // Se não tiver o cookie correto, bloqueia o acesso
+        if (token !== 'autenticada') {
+            // Redireciona para a página inicial
+            return NextResponse.redirect(new URL('/', request.url));
+        }
+    }
+
+    // Se tudo estiver certo, permite o acesso
+    return NextResponse.next();
+}
+
+// Configura o matcher para a nova rota
+export const config = {
+    matcher: ['/portal-gestao-plc301/:path*'],
+};
